@@ -1,58 +1,68 @@
-﻿<Window x:Class="QuoteMaster.MainWindow"
+﻿<Window x:Class="ISwearItsNoAi.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="QuoteMaster - Генератор цитат" Height="400" Width="600"
-        WindowStartupLocation="CenterScreen"
-        Background="#2C3E50">
+        Title="ISwearItsNoAi - Главное меню" Height="651" Width="900"
+        WindowStartupLocation="CenterScreen">
 
-    <Grid Margin="20">
+    <Grid Background="#f0f0f0">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Цитата -->
-        <Border Grid.Row="0" Background="#34495E" CornerRadius="10" 
-                BorderBrush="#1ABC9C" BorderThickness="2" Margin="0,0,0,20">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="20">
-                <TextBlock x:Name="quoteText" TextWrapping="Wrap" 
-                          FontSize="18" FontStyle="Italic"
-                          Foreground="#ECF0F1" TextAlignment="Center"
-                          VerticalAlignment="Center"/>
-            </ScrollViewer>
-        </Border>
-
-        <!-- Автор -->
-        <TextBlock x:Name="authorText" Grid.Row="1" 
-                   HorizontalAlignment="Right" Margin="0,0,20,20"
-                   FontSize="16" FontWeight="Bold" Foreground="#1ABC9C"
-                   FontStyle="Italic"/>
-
-        <!-- Кнопки -->
-        <StackPanel Grid.Row="2" Orientation="Horizontal" 
-                    HorizontalAlignment="Center" Margin="0,0,0,10">
-            <Button x:Name="newQuoteButton" Content="Новая цитата" 
-                    Click="NewQuoteButton_Click"
-                    Background="#1ABC9C" Foreground="White"
-                    FontSize="14" FontWeight="Bold"
-                    Padding="15,8" Margin="5" BorderThickness="0"
-                    Cursor="Hand"/>
-
-            <Button x:Name="copyButton" Content="Копировать" 
-                    Click="CopyButton_Click"
-                    Background="#3498DB" Foreground="White"
-                    FontSize="14" FontWeight="Bold"
-                    Padding="15,8" Margin="5" BorderThickness="0"
-                    Cursor="Hand"/>
+        <!-- Заголовок/Обьявление/Наименование/Название/Заголовочек/Текстовка/Эпитафияa -->
+        <StackPanel Grid.Row="0" Background="#2C3E50" Margin="0,0,0,20">
+            <TextBlock Text="ISwearItsNoAi" 
+                       FontSize="28" FontWeight="Bold" 
+                       HorizontalAlignment="Center" 
+                       Margin="20,15" Foreground="White"/>
+            <TextBlock Text="Система управления предприятиями" 
+                       FontSize="14" 
+                       HorizontalAlignment="Center" 
+                       Margin="0,0,0,15" Foreground="#BDC3C7"/>
         </StackPanel>
 
-        <!-- Кнопка выхода -->
-        <Button Grid.Row="3" Content="Выход" Click="ExitButton_Click"
-                Background="#E74C3C" Foreground="White"
-                FontSize="12" Padding="10,5" 
-                HorizontalAlignment="Right"
-                BorderThickness="0" Cursor="Hand"/>
+        <!-- кнопочки ситем бэу -->
+        <Grid Grid.Row="1">
+            <UniformGrid Columns="2" Rows="2" Margin="30" VerticalAlignment="Center">
+                <Button Content="Учет рабочего времени" 
+                        Click="OpenTimeTracking_Click" 
+                        Margin="10" Height="70" 
+                        FontSize="14" Background="#4CAF50" 
+                        Foreground="White" FontWeight="SemiBold"/>
+                <Button Content="Управление библиотекой" 
+                        Click="OpenLibrary_Click" 
+                        Margin="10" Height="70" 
+                        FontSize="14" Background="#2196F3" 
+                        Foreground="White" FontWeight="SemiBold"/>
+                <Button Content="Планирование путешествий" 
+                        Click="OpenTravel_Click" 
+                        Margin="10" Height="70" 
+                        FontSize="14" Background="#FF9800" 
+                        Foreground="White" FontWeight="SemiBold"/>
+                <Button Content="Бухгалтерский учет" 
+                        Click="OpenAccounting_Click" 
+                        Margin="10" Height="70" 
+                        FontSize="14" Background="#9C27B0" 
+                        Foreground="White" FontWeight="SemiBold"/>
+            </UniformGrid>
+
+            <!-- Обезьянка в правом нижнем углу -->
+            <Image Source="C:\Users\user\Pictures\JasonStatham\Busymonkey.jpg" 
+                   Width="180" Height="120"
+                   HorizontalAlignment="Right" 
+                   VerticalAlignment="Bottom"
+                   Margin="0,0,20,20"
+                   Stretch="Uniform"/>
+        </Grid>
+
+        <!-- То что внизу Foot -->
+        <Border Grid.Row="2" Background="#34495E" Padding="10">
+            <TextBlock Text="ISwearItsNoAi © 2025 - Все системы работают стабильно" 
+                       Foreground="#ECF0F1" 
+                       HorizontalAlignment="Center" 
+                       FontSize="12"/>
+        </Border>
     </Grid>
 </Window>
