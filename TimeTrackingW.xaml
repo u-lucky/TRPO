@@ -1,0 +1,44 @@
+﻿<Window x:Class="ISwearItsNoAi.TimeTrackingW"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Учет рабочего времени" Height="400" Width="600"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Сотрудник:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <ComboBox x:Name="cmbEmployees" Width="150" Margin="0,0,10,0"/>
+            <Button x:Name="btnArrival" Content="Приход" Click="BtnArrival_Click" Width="80" Margin="0,0,5,0"/>
+            <Button x:Name="btnDeparture" Content="Уход" Click="BtnDeparture_Click" Width="80" Margin="5,0,0,0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Период:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <DatePicker x:Name="dpStartDate" Width="120" Margin="0,0,5,0"/>
+            <TextBlock Text="-" VerticalAlignment="Center" Margin="5,0,5,0"/>
+            <DatePicker x:Name="dpEndDate" Width="120" Margin="5,0,10,0"/>
+            <Button x:Name="btnFilter" Content="Показать" Click="BtnFilter_Click" Width="80"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="2" x:Name="dgTimeRecords" AutoGenerateColumns="False" Margin="0,0,0,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Сотрудник" Binding="{Binding EmployeeName}" Width="150"/>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Date}" Width="100"/>
+                <DataGridTextColumn Header="Приход" Binding="{Binding ArrivalTime}" Width="80"/>
+                <DataGridTextColumn Header="Уход" Binding="{Binding DepartureTime}" Width="80"/>
+                <DataGridTextColumn Header="Отработано" Binding="{Binding WorkedHours}" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <StatusBar Grid.Row="3">
+            <TextBlock x:Name="tbStatus" Text="Готов к работе"/>
+        </StatusBar>
+    </Grid>
+</Window>
